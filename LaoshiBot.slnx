@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/deployment/" />
+  <Folder Name="/n8n/" />
+  <Folder Name="/src/">
+    <Project Path="src/LaoshiBot.Application/LaoshiBot.Application.csproj" />
+    <Project Path="src/LaoshiBot.Domain/LaoshiBot.Domain.csproj" />
+    <Project Path="src/LaoshiBot.FunctionApp/LaoshiBot.FunctionApp.csproj" />
+    <Project Path="src/LaoshiBot.Infrastructure/LaoshiBot.Infrastructure.csproj" />
+  </Folder>
+</Solution>
