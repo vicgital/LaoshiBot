@@ -1,4 +1,6 @@
 using LaoshiBot.Application.Interfaces.Components;
+using LaoshiBot.Application.Interfaces.Processors;
+using LaoshiBot.Application.Processors;
 using LaoshiBot.Infrastructure.AzureClients;
 using LaoshiBot.Infrastructure.Components;
 using Microsoft.Azure.Functions.Worker.Builder;
@@ -17,11 +19,13 @@ builder.Services
     .AddSingleton(AzureClientFactory.GetStorageBlobContainerClients(config));
 
 
+builder.Services.AddLogging();
 builder.Services.AddSingleton<ITextToSpeechComponent, TextToSpeechComponent>();
 builder.Services.AddSingleton<ITranslatorComponent, TranslatorComponent>();
 builder.Services.AddSingleton<IDalleImageGeneratorComponent, DalleImageGeneratorComponent>();
 builder.Services.AddSingleton<IStorageAccountComponent, StorageAccountComponent>();
 
+builder.Services.AddScoped<IWordProcessor, WordProcessor>();
 
 
 builder.ConfigureFunctionsWebApplication();

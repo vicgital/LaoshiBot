@@ -17,4 +17,8 @@
     <ProjectReference Include="..\LaoshiBot.Domain\LaoshiBot.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
 </Project>

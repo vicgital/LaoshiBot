@@ -1,4 +1,5 @@
 ﻿using LaoshiBot.Application.Interfaces.Components;
+using LaoshiBot.Domain.Enums;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.Extensions.Logging;
 
@@ -9,7 +10,7 @@ namespace LaoshiBot.Infrastructure.Components
         private readonly SpeechConfig _speechConfig = speechConfig;
         private readonly ILogger<TextToSpeechComponent> _logger = logger;
 
-        public async Task<Stream?> GetAudioSpeechFromText(string text, string languageCode, string voiceName, string audioProsodyRate)
+        public async Task<Stream?> GetAudioSpeechFromText(string text, string languageCode, string voiceName, TextToSpeechProsodyRate audioProsodyRate)
         {
             try
             {
@@ -21,13 +22,15 @@ namespace LaoshiBot.Infrastructure.Components
                 string ssml = @$"
                             <speak version='1.0' xml:lang='{languageCode}'>
                               <voice name='{voiceName}'>
-                                <prosody rate='{audioProsodyRate}' pitch='0%'>
+                                <prosody rate='{audioProsodyRate.ToString().ToLower()}' pitch='0%'>
                                   {text}
                                 </prosody>
                               </voice>
                             </speak>";
 
                 var speechSynthesisResult = await synthesizer.SpeakSsmlAsync(ssml);
+                
+
 
                 if (speechSynthesisResult.Reason == ResultReason.SynthesizingAudioCompleted)
                 {

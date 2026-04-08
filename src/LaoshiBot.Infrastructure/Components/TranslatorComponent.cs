@@ -33,7 +33,7 @@ namespace LaoshiBot.Infrastructure.Components
             catch (Exception ex)
             {
                 _logger.LogError(ex, "TranslateText({text})", text);
-                return string.Empty;
+                throw;
             }
         }
 
@@ -54,8 +54,8 @@ namespace LaoshiBot.Infrastructure.Components
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "TransliterateText()");
-                return string.Empty;
+                _logger.LogError(ex, "TransliterateText({text})", text);
+                throw;
             }
         }
     }

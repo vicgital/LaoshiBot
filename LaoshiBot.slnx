@@ -1,10 +1,16 @@
 <Solution>
-  <Folder Name="/deployment/" />
-  <Folder Name="/n8n/" />
-  <Folder Name="/src/">
+  <Folder Name="/backend/">
     <Project Path="src/LaoshiBot.Application/LaoshiBot.Application.csproj" />
     <Project Path="src/LaoshiBot.Domain/LaoshiBot.Domain.csproj" />
     <Project Path="src/LaoshiBot.FunctionApp/LaoshiBot.FunctionApp.csproj" />
     <Project Path="src/LaoshiBot.Infrastructure/LaoshiBot.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/database/">
+    <Project Path="src/LaoshiBot.Database/LaoshiBot.Database.sqlproj" Id="75de71c3-8c44-4cda-92df-d8c6a9a3d652">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/deployment/" />
+  <Folder Name="/n8n/" />
 </Solution>
